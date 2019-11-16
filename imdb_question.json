@@ -1,0 +1,1352 @@
+[
+    {
+        "id": 0,
+        "question_pt": "Qual a receita bruta de Transporter 3?",
+        "question_en": "What is the gross revenue of Transporter 3?",
+        "query": "SELECT ?gross WHERE{ <http://www.imdb.com/title/540574> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/540574> <http://dbpedia.org/ontology/gross> ?gross . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 1,
+        "question_pt": "Quais companhias est\u00e3o Brasil?",
+        "question_en": "Which companies are in Brazil",
+        "query": "SELECT DISTINCT ?companyName  WHERE{ ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#hasCompanyLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Brazil> . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 2,
+        "question_pt": "Mostre me s\u00e9ries de tv japonesas",
+        "question_en": "Show me japanese tv series",
+        "query": "SELECT DISTINCT ?title WHERE{ ?t a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries> . ?t <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Japan>. ?t <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 3,
+        "question_pt": "Me mostre todos os filmes gravados na Alemanha",
+        "question_en": "Show me all the movies recorded in Germany",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Germany> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 4,
+        "question_pt": "Quem dirigiu o Titanic?",
+        "question_en": "Who directed the Titanic?",
+        "query": "SELECT ?f WHERE{ <http://www.imdb.com/title/534563> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/534563> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> ?f . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 5,
+        "question_pt": "Onde foi gravado o filme Tropa de Elite?",
+        "question_en": "Where was the movie Tropa de Elite recorded?",
+        "query": "SELECT ?hasFilmLocation WHERE{ <http://www.imdb.com/title/542995> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/542995> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?hasFilmLocation . } ",
+        "type_question": "where",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 6,
+        "question_pt": "Em quais locais foi gravado o filme The Lord of Rings?",
+        "question_en": "Where was the movie The Lord of Rings recorded?",
+        "query": "SELECT ?hasFilmLocation WHERE{ <http://www.imdb.com/title/501496> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/501496> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?hasFilmLocation . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 7,
+        "question_pt": "quais os filmes dirigidos pela Woody Allen?",
+        "question_en": "What movies are directed by Woody Allen?",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/name/17448> a <http://dbpedia.org/page/Film_Director> . <http://www.imdb.com/name/17448> <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> ?m . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 8,
+        "question_pt": "Quais pr\u00eamios sylvester stallone ganhou?",
+        "question_en": "What awards sylvester stallone has won?",
+        "query": "SELECT DISTINCT ?a WHERE{ ?a a ?w . <http://www.imdb.com/name/886940> a <http://dbpedia.org/page/Film_Director> . <http://www.imdb.com/name/886940> <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> ?a . FILTER (?w IN (<http://www.movieontology.org/2009/10/01/movieontology.owl#Award>) || ?a IN (<http://www.movieontology.org/2009/10/01/movieontology.owl#BAFTA_Film_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Golden_Globe_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Miscellaneous_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Oscar_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Primetime_Emmy_Award>)). }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 9,
+        "question_pt": "Qual os 5 filmes mais mal avaliados?",
+        "question_en": "What are the 5 worst rated movies?",
+        "query": "SELECT ?title ?imdbrating  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating> ?imdbrating . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . } ORDER BY ?imdbrating LIMIT 5",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 10,
+        "question_pt": "Quais atores fizeram parte do elenco de The Lord of Rings?",
+        "question_en": "Which actors were cast in The Lord of Rings?",
+        "query": "SELECT DISTINCT ?birthName  WHERE{ <http://www.imdb.com/title/501496> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://dbpedia.org/ontology/Actor> . ?a <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> <http://www.imdb.com/title/501496> . ?a <http://dbpedia.org/ontology/birthName> ?birthName . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 11,
+        "question_pt": "Qual o or\u00e7amento planejado de Game of Thrones?",
+        "question_en": "What is the planned budget of Game of Thrones?",
+        "query": "SELECT ?budget WHERE{ <http://www.imdb.com/title/839494> a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries> . <http://www.imdb.com/title/839494> <http://dbpedia.org/ontology/budget> ?budget . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 12,
+        "question_pt": "Quem foi o produtor do filme 300?",
+        "question_en": "Who was the producer of the movie 300?",
+        "query": "SELECT ?birthName  WHERE{ ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Producer> . <http://www.imdb.com/title/4293> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/4293> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasProducer> ?p . ?p <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 13,
+        "question_pt": "quais os filmes dirigidos pela angelina jolie?",
+        "question_en": "what movies directed by angelina jolie?",
+        "query": "SELECT DISTINCT ?title WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/11/09/movieontology.owl#hasDirector> <http://www.imdb.com/name/1308134>. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 14,
+        "question_pt": "Quais os filmes lan\u00e7ados em 2010?",
+        "question_en": "What movies were released in 2010?",
+        "query": "SELECT DISTINCT ?m WHERE{ <http://www.imdb.com/title/3407> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/3407> <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . bind(year(?date) as ?year). filter(?year = 2010). }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 15,
+        "question_pt": "Mostre os diretores de filmes da China",
+        "question_en": "Show the film directors of China",
+        "query": "SELECT DISTINCT ?birthName WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> .?f a <http://dbpedia.org/page/Film_Director> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> ?f . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#China> . ?f <http://dbpedia.org/ontology/birthName> ?birthName .}",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 16,
+        "question_pt": "Qual o filme mais longo?",
+        "question_en": "What is the longest movie?",
+        "query": "SELECT ?title WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#runtime> ?runtime } ORDER BY DESC(?runtime) limit 1",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 17,
+        "question_pt": "Quem faz parte do elenco de Moonlight?",
+        "question_en": "Who is part of the cast of Moonlight?",
+        "query": "SELECT ?birthName WHERE{ <http://www.imdb.com/title/329909> ?hasActor ?actor. ?actor <http://dbpedia.org/ontology/birthName> ?birthName. filter(?hasActor in (<http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress>, <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor>)) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 18,
+        "question_pt": "Qual o elenco de Sea North?",
+        "question_en": "What is the cast of Sea North?",
+        "query": "SELECT DISTINCT ?actor WHERE{ <http://www.imdb.com/title/422875> ?hasActor ?actor . filter(?hasActor in (<http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress>, <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor>))}",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 19,
+        "question_pt": "Quem produziu a maioria dos filmes de a\u00e7\u00e3o?",
+        "question_en": "Who produced the most action movies?",
+        "query": "select ?producer (count(*) as ?count) where { ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.   ?a a <http://www.movieontology.org/2009/10/01/movieontology.owl#Brute_Action>.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> ?a.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasProducer> ?producer. } group by ?producer order by desc(?count) limit 1",
+        "type_question": "count",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 20,
+        "question_pt": "Quem foi o editor de The Matrix Revolution?",
+        "question_en": "Who was the editor of The Matrix Revolution?",
+        "query": "SELECT ?birthName  WHERE{ <http://www.imdb.com/title/504647> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?e a <http://www.movieontology.org/2009/10/01/movieontology.owl#Editor> . <http://www.imdb.com/title/504647> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasEditor> ?e . ?e <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 21,
+        "question_pt": "Qual o nome da companhia que produziu o filme Slumdog Millionaire? ",
+        "question_en": "What is the name of the company that produced the movie Slumdog Millionaire?",
+        "query": "select ?name where { <http://www.imdb.com/title/440022> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.<http://www.imdb.com/title/440022> <http://www.movieontology.org/2009/10/01/movieontology.owl#isProducedBy> ?company. ?company <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?name.  }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 22,
+        "question_pt": "Quais atrizes fizeram parte do elenco de The Lord of Rings?",
+        "question_en": "Which actresses were cast in The Lord of Rings?",
+        "query": "SELECT DISTINCT ?birthName  WHERE{ <http://www.imdb.com/title/501496> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://www.movieontology.org/2009/11/09/movieontology.owl#Actress> . <http://www.imdb.com/title/501496> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress> ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 23,
+        "question_pt": "Qual o g\u00eanero de Dexter?",
+        "question_en": "What is Dexter's genre?",
+        "query": "SELECT DISTINCT ?label WHERE{ <http://www.imdb.com/title/126058> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/126058> <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> ?g . ?g <http://www.w3.org/2000/01/rdf-schema#label> ?label . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 24,
+        "question_pt": "Liste os 5 filmes de horror mais bem avaliados?",
+        "question_en": "List the 5 highest rated horror movies?",
+        "query": "SELECT ?title (COUNT(?title) as ?count)  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating> ?imdbrating . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Horror> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . } GROUP BY ?title ORDER BY DESC(?count) LIMIT 5 ",
+        "type_question": "count",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 25,
+        "question_pt": "Quais os 3 roteiristas que escreveram a maioria dos filmes?",
+        "question_en": "Which writer wrote most of the movies?",
+        "query": "ELECT ?birthName (COUNT(?birthName) as ?count)  WHERE{ ?w a <http://dbpedia.org/ontology/Writer> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?w <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> ?m . ?w <http://dbpedia.org/ontology/birthName> ?birthName . } GROUP BY ?birthName ORDER BY DESC(?count) LIMIT 3 ",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 26,
+        "question_pt": "Quem s\u00e3o os atores mais velhos?",
+        "question_en": "Who are the older actors?",
+        "query": "SELECT ?birthName WHERE{ ?a a <http://dbpedia.org/ontology/Actor> . ?a <http://dbpedia.org/ontology/birthDate> ?birthDate. ?a <http://dbpedia.org/ontology/birthName> ?birthName . } ORDER BY ?birthDate limit 1",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 27,
+        "question_pt": "Quais os 3 roteiristas que escreveram mais filmes?",
+        "question_en": "Which company has the most movies?",
+        "query": "SELECT ?companyName (COUNT(?companyName) as ?count)  WHERE{ ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName . } GROUP BY ?companyName ORDER BY DESC(?count) LIMIT 1 ",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 28,
+        "question_pt": "Quais companhias gravaram mais de 700 filmes?",
+        "question_en": "Which companies recorded over 700 movies?",
+        "query": "SELECT ?companyName (COUNT(?companyName) as ?count)  WHERE{ ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName . } GROUP BY ?companyName HAVING (?count > 700) ORDER BY DESC(?count)",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 29,
+        "question_pt": "Quais os filmes europeus mais bem avaliados?",
+        "question_en": "What are the best rated European films?",
+        "query": "SELECT ?companyName (COUNT(?companyName) as ?count) WHERE{ ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName . } GROUP BY ?companyName HAVING (COUNT(?companyName) > 700)",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 30,
+        "question_pt": "Onde foi gravado o filme The life of Abraham Lincoln?",
+        "question_en": "Where was the movie The Life of Abraham Lincoln recorded?",
+        "query": "SELECT ?hasFilmLocation WHERE{ <http://www.imdb.com/title/500240> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/500240> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?hasFilmLocation . }",
+        "type_question": "where",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 31,
+        "question_pt": "Quais os 5 atores que atuaram mais vezes em filmes?",
+        "question_en": "Which 5 actors have acted most often in movies?",
+        "query": "SELECT ?birthName (COUNT(?birthName) as ?count)  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://dbpedia.org/ontology/Actor> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName . } GROUP BY ?birthName ORDER BY DESC(?count) LIMIT 5",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 32,
+        "question_pt": "quais filmes feitos na Am\u00e9rica Latina mais receberam premia\u00e7\u00e3o?",
+        "question_en": "which movie made in Latin America received the most awards?",
+        "query": "SELECT ?title (count(?title) as ?count) WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> ?award . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?location. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title. filter(?location in (<http://www.movieontology.org/2009/10/01/movieontology.owl#LatinAmerica>, <http://www.movieontology.org/2009/10/01/movieontology.owl#Belize>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Costa_Rica>,<http://www.movieontology.org/2009/10/01/movieontology.owl#El_Salvador>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Guatemala>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Honduras>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Mexico>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Nicaragua>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Panama>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Argentina>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Bolivia>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Brazil>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Chile>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Colombia>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Ecuador>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Falkland_Islands>,<http://www.movieontology.org/2009/10/01/movieontology.owl#French_Guiana>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Guyana>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Paraguay>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Peru>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Suriname>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Uruguay>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Venezuela>)) } group by ?title order by desc(?count)",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 33,
+        "question_pt": "Quais filmes foram gravados nos Pa\u00edse Baixos?",
+        "question_en": "What movies were recorded in the Netherlands?",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Netherlands> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 34,
+        "question_pt": "Liste todos os filmes que Lincoln Plumer atuou",
+        "question_en": "List All Lincoln Plumer Movies Acted",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/name/739903> a <http://dbpedia.org/ontology/Actor> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> <http://www.imdb.com/name/739903> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 35,
+        "question_pt": "Quais os 10 atores que mais aturam em filmes produzidos pela Athos Films?",
+        "question_en": "Who are the top 10 actors in films produced by Athos Films?",
+        "query": "SELECT ?birthName (COUNT(?birthName) as ?count) WHERE{ <http://www.imdb.com/company/10939> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://dbpedia.org/ontology/Actor> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . <http://www.imdb.com/company/10939> <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m . ?a <http://dbpedia.org/ontology/birthName> ?birthName . } GROUP BY ?birthName ORDER BY DESC(?count) LIMIT 10",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 36,
+        "question_pt": "Quais produtoras atuam fora dos EUA?",
+        "question_en": "Which production company operate outside of the EUA?",
+        "query": "select distinct ?companyName where {  ?c a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company>.   ?m a ?t.    ?c <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m.    ?c <http://www.movieontology.org/2009/11/09/movieontology.owl#hasCompanyLocation> ?location.    ?c <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName.   filter(?location not in (<http://www.movieontology.org/2009/10/01/movieontology.owl#USA>)) filter(?t in (<http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>, <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries>)) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 37,
+        "question_pt": "Quem \u00e9 o diretor do filme Casablanca?",
+        "question_en": "Who is the director of the movie Casablanca?",
+        "query": "SELECT ?birthName  WHERE{ <http://www.imdb.com/title/84110> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?f a <http://dbpedia.org/page/Film_Director> . <http://www.imdb.com/title/84110> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> ?f . ?f <http://dbpedia.org/ontology/birthName> ?birthName . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 38,
+        "question_pt": "Qual o filme de drama com a melhor avalia\u00e7\u00e3o em 2011",
+        "question_en": "Best rated drama movie of 2011",
+        "query": "SELECT ?m WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Drama> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating> ?imdbrating . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . bind(year(?date) as ?year). filter(?year = 2011). }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 39,
+        "question_pt": "Quem foi o Produtor de Scarface?",
+        "question_en": "Who was the Scarface Producer?",
+        "query": "SELECT ?birthName  WHERE{ ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Producer> . <http://www.imdb.com/title/420340> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/420340> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasProducer> ?p . ?p <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 40,
+        "question_pt": "Johnny Depp participou de A Star Is Born?",
+        "question_en": "Johnny Depp participated in A Star Is Born?",
+        "query": "ASK {<http://www.imdb.com/name/231595> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> <http://www.imdb.com/title/15153>}",
+        "type_question": "yes/no",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 41,
+        "question_pt": "Quais os 5 atores que atuaram em filmes de maiores dura\u00e7\u00f5es?",
+        "question_en": "Which 5 actors have acted in films of greater duration?",
+        "query": "SELECT ?birthName ?runtime  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://dbpedia.org/ontology/Actor> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#runtime> ?runtime . ?a <http://dbpedia.org/ontology/birthName> ?birthName . } ORDER BY DESC(?runtime) LIMIT 5",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 42,
+        "question_pt": "De qual regi\u00e3o \u00e9 a companhia warner bros?",
+        "question_en": "What region is warner bros from?",
+        "query": "SELECT DISTINCT ?t WHERE{ <http://www.imdb.com/company/35278> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . <http://www.imdb.com/company/35278> <http://www.movieontology.org/2009/11/09/movieontology.owl#hasCompanyLocation> ?t .}",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 43,
+        "question_pt": "Me mostre todas as produ\u00e7\u00f5es gravadas na Fran\u00e7a",
+        "question_en": "Show me all the productions recorded in France",
+        "query": "select distinct ?title where {   ?m a ?t.       ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#France>.  ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title.  filter(?t in (<http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>, <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries>)) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 44,
+        "question_pt": "Quais as 5 atrizes mais venceram Oscars nos \u00faltimos 30 anos?",
+        "question_en": "Which 5 actresses have won the most Oscars in the last 30 years?",
+        "query": "SELECT ?birthName (COUNT(?birthName) as ?count)  WHERE{ ?a a <http://www.movieontology.org/2009/11/09/movieontology.owl#Actress> . ?a <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> <http://www.movieontology.org/2009/10/01/movieontology.owl#Oscar_Award> . ?a <http://www.movieontology.org/2009/11/09/movieontology.owl#indicationDate> ?date . ?a <http://dbpedia.org/ontology/birthName> ?birthName . bind(strdt(concat(str(year(now())),concat(\"-\",concat(str(month(now())),concat(\"-\",str(day(now())))))), <http://www.w3.org/2001/XMLSchema#date>) as ?now). bind(day(?now - ?date) as ?time). filter(?time <= 30*365). } GROUP BY ?birthName ORDER BY DESC(?count) LIMIT 5",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": true
+    },
+    {
+        "id": 45,
+        "question_pt": "Quando foi o in\u00edcio da produ\u00e7\u00e3o de the fighter?",
+        "question_en": "When was the production of the fighter started?",
+        "query": "select ?year where { <http://www.imdb.com/title/488227> <http://dbpedia.org/ontology/productionStartYear> ?year.}",
+        "type_question": "when",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 46,
+        "question_pt": "Quais os locais houveram mais grava\u00e7\u00f5es de filmes?",
+        "question_en": "Which locations had the most movie recordings?",
+        "query": "select ?l (count(?l) as ?count) where { ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?l. } group by ?l order by desc(?count) limit 5",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 47,
+        "question_pt": "Mostre todas as atrizes que atuaram em Schindler List?",
+        "question_en": "Show all actresses who acted in Schindler List?",
+        "query": "SELECT DISTINCT ?birthName  WHERE{ <http://www.imdb.com/title/420879> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://www.movieontology.org/2009/11/09/movieontology.owl#Actress> . <http://www.imdb.com/title/420879> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress> ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 48,
+        "question_pt": "Vivien Leigh atuou no filme Gone with the Wind?",
+        "question_en": "Vivien Leigh starred in the movie Gone with the Wind?",
+        "query": "ask{  <http://www.imdb.com/title/192285> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress> <http://www.imdb.com/name/1358238>  }",
+        "type_question": "yes/no",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 49,
+        "question_pt": "Quando foi o lan\u00e7amento de Pirates of the Caribbean?",
+        "question_en": "When was the release of Pirates of the Caribbean?",
+        "query": "SELECT ?date WHERE{ <http://www.imdb.com/title/379976> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/379976> <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . }",
+        "type_question": "when",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 50,
+        "question_pt": "Me d\u00ea todos os atores de Gangster escrito por Dev Anand",
+        "question_en": "Gimme all the gangster actors written by Dev Anand",
+        "query": "SELECT ?birthName  WHERE{ ?a a <http://dbpedia.org/ontology/Actor> . ?w a <http://dbpedia.org/ontology/Writer> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?w <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> ?m . ?a <http://dbpedia.org/ontology/birthName> ?birthName . filter(?m = <http://www.imdb.com/title/183828> && ?w = <http://www.imdb.com/name/22740>). }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 51,
+        "question_pt": "Qual companhia gravou a s\u00e9rie de TV How i met your mother?",
+        "question_en": "Which company recorded the How i met your mother TV series?",
+        "query": "select distinct ?companyName where { ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> <http://www.imdb.com/title/889632>.   ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName. }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 52,
+        "question_pt": "Qual o filme mais bem avaliado da Alemanha?",
+        "question_en": "What is the highest rated movie in Germany?",
+        "query": "SELECT ?title ?imdbrating  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating> ?imdbrating . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Germany> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . } ORDER BY DESC(?imdbrating)",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 53,
+        "question_pt": "Qual filme possui mais oscars?",
+        "question_en": "Which movie has the most oscars?",
+        "query": "SELECT ?title (COUNT(?title) as ?count)  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> <http://www.movieontology.org/2009/10/01/movieontology.owl#Oscar_Award> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . } GROUP BY ?title ORDER BY DESC(?count)",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 54,
+        "question_pt": "Quantos atores trabalharam em The Sound of Music?",
+        "question_en": "How many actors worked on The Sound of Music?",
+        "query": "SELECT (COUNT(?birthName) AS ?count) WHERE{ ?a a <http://dbpedia.org/ontology/Actor> . <http://www.imdb.com/title/335048> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/335048> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName .}",
+        "type_question": "count",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 55,
+        "question_pt": "O filme Star Wars: Clone wars \u00e9 uma produ\u00e7\u00e3o de Lucasfilm ?",
+        "question_en": "Star Wars: Clone Wars is a Lucasfilm production?",
+        "query": "ask { ?t a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries> . ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?t <http://www.movieontology.org/2009/10/01/movieontology.owl#isProducedBy> ?p . ?t <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . filter(?p = <http://www.imdb.com/company/4895> && ?t = <http://www.imdb.com/title/1171853>). }",
+        "type_question": "yes/no",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 56,
+        "question_pt": "Quando foi lan\u00e7ado o filme Fight Club?",
+        "question_en": "When was the Fight Club movie released?",
+        "query": "SELECT ?date WHERE{ <http://www.imdb.com/title/169828> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/169828> <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . }",
+        "type_question": "when",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 57,
+        "question_pt": "Quem s\u00e3o os atores do elenco de Premier League poker?",
+        "question_en": "Who are the cast actors in Premier League poker?",
+        "query": "SELECT ?birthName  WHERE{ <http://www.imdb.com/title/1090248> a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries> . ?a a <http://dbpedia.org/ontology/Actor> . <http://www.imdb.com/title/1090248> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 58,
+        "question_pt": "Quem roteirizou o filme Filipinas?",
+        "question_en": "Who scripted the movie Philippines?",
+        "query": "SELECT ?birthName  WHERE{ ?w a <http://dbpedia.org/ontology/Writer> . <http://www.imdb.com/title/170158> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?w <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> <http://www.imdb.com/title/170158> . ?w <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 59,
+        "question_pt": "Me d\u00ea o nome de batismo dos atores do show de televis\u00e3o Friends",
+        "question_en": "Give me the christening name of the actors on the television show Friends",
+        "query": "select ?birthName where {  <http://www.imdb.com/title/179217> ?hasActor ?a.   ?a <http://dbpedia.org/ontology/birthName> ?birthName.   filter(?hasActor in (<http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress>, <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor>)) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 60,
+        "question_pt": "Quem estrelou Al Capone?",
+        "question_en": "Who starred in Al Capone?",
+        "query": "SELECT ?birthName WHERE{ <http://www.imdb.com/title/24689> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/24689> ?hasActor ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName. filter(?hasActor in (<http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress>, <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor>)) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 61,
+        "question_pt": "Onde foi gravado Lake City?",
+        "question_en": "Where was Lake City recorded?",
+        "query": "SELECT ?hasFilmLocation WHERE{ <http://www.imdb.com/title/278923> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/278923> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?hasFilmLocation . }",
+        "type_question": "where",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 62,
+        "question_pt": "quantos filmes foram produzidos pela angelina jolie?",
+        "question_en": "How many movies were produced by Angelina Jolie?",
+        "query": "SELECT (count(?title) as ?count) WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/11/09/movieontology.owl#hasDirector> <http://www.imdb.com/name/1308134>. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "count",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 63,
+        "question_pt": "Quando foi o in\u00edcio da produ\u00e7\u00e3o do filmes dirigidos pela angelina jolie?",
+        "question_en": "When was the beginning of the production of the films directed by angelina jolie?",
+        "query": "SELECT ?productionStartYear WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/name/1308134> a <http://dbpedia.org/page/Film_Director> . ?m <http://dbpedia.org/ontology/productionStartYear> ?productionStartYear . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> <http://www.imdb.com/name/1308134> . }",
+        "type_question": "when",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 64,
+        "question_pt": "Onde foi gravado Piccadilly?",
+        "question_en": "Where was Piccadilly Recorded?",
+        "query": "SELECT ?hasFilmLocation WHERE{ <http://www.imdb.com/title/378123> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/378123> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?hasFilmLocation . }",
+        "type_question": "where",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 65,
+        "question_pt": "Quantos filmes de amor s\u00e3o lan\u00e7ados por ano?",
+        "question_en": "How many love movies are released each year?",
+        "query": "select ?year (count(*) as ?count) where { ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.   ?g a <http://www.movieontology.org/2009/10/01/movieontology.owl#Love>.  ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre>  ?g.  ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date.  bind(year(?date) as ?year)} group by ?year",
+        "type_question": "count",
+        "aggregation": true,
+        "temporal_filter": true
+    },
+    {
+        "id": 66,
+        "question_pt": "Liste 5 roteirista de filme de 2016",
+        "question_en": "List 5 movie writer of 2016",
+        "query": "SELECT DISTINCT ?birthName  WHERE{ ?w a <http://dbpedia.org/ontology/Writer> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . ?w <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> ?m . ?w <http://dbpedia.org/ontology/birthName> ?birthName . bind(year(?date) as ?year). filter(?year = 2016). } LIMIT 5",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 67,
+        "question_pt": "Quem \u00e9 s\u00e3o as atrizes de Due notti con Cleopatra?",
+        "question_en": "Who are the actresses of Due notti con Cleopatra?",
+        "query": "SELECT ?birthName  WHERE{ <http://www.imdb.com/title/141827> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://www.movieontology.org/2009/11/09/movieontology.owl#Actress> . <http://www.imdb.com/title/141827> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress> ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 68,
+        "question_pt": "Quando a s\u00e9rie de TV Family Guy foi indicado ao Emmy?",
+        "question_en": "When was the TV series Family Guy nominated for an Emmy?",
+        "query": "SELECT ?date WHERE{ <http://www.imdb.com/title/818568> a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries> . <http://www.imdb.com/title/818568> <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> <http://www.movieontology.org/2009/10/01/movieontology.owl#Primetime_Emmy_Award> . <http://www.imdb.com/title/818568> <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . }",
+        "type_question": "when",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 69,
+        "question_pt": "Quais filmes foram dirigidos por Steven Spielberg?",
+        "question_en": "What movies were directed by Steven Spielberg?",
+        "query": "SELECT DISTINCT ?title WHERE{   ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> .   <http://www.imdb.com/name/883627> a <http://dbpedia.org/page/Film_Director> .   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> <http://www.imdb.com/name/883627> .   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 70,
+        "question_pt": "Quantos pr\u00eamios o filme Amadeus ganhou?",
+        "question_en": "How many awards has the movie Amadeus won?",
+        "query": "SELECT (COUNT(?a) AS ?count) WHERE{ <http://www.imdb.com/title/29520> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a ?w . <http://www.imdb.com/title/29520> <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> ?a . FILTER (?w IN (<http://www.movieontology.org/2009/10/01/movieontology.owl#Award>) || ?a IN (<http://www.movieontology.org/2009/10/01/movieontology.owl#BAFTA_Film_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Golden_Globe_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Miscellaneous_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Oscar_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Primetime_Emmy_Award>)). }",
+        "type_question": "count",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 71,
+        "question_pt": "Em quais regi\u00f5es foram gravados mais de 700 filmes?",
+        "question_en": "In which regions were more than 700 films recorded?",
+        "query": "SELECT ?t (COUNT(?t) as ?count) WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?t . } group by ?t having (?count > 700)",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 72,
+        "question_pt": "Qual a dura\u00e7\u00e3o de Earth?",
+        "question_en": "How long is Earth?",
+        "query": "SELECT ?runtime WHERE{ <http://www.imdb.com/title/144189> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/144189> <http://www.movieontology.org/2009/10/01/movieontology.owl#runtime> ?runtime . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 73,
+        "question_pt": "Quantos atores atuaram em filmes que foram produzidos por companhia americanas?",
+        "question_en": "How many actors acted in movies that were produced by American companies?",
+        "query": "SELECT (COUNT(?birthName) AS ?count)  WHERE{ ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://dbpedia.org/ontology/Actor> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#isProducedBy> ?p . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#hasCompanyLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#USA> . ?a <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "count",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 74,
+        "question_pt": "Quem editou Godzilla?",
+        "question_en": "Who edited Godzilla?",
+        "query": "SELECT ?birthName  WHERE{ <http://www.imdb.com/title/191142> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?e a <http://www.movieontology.org/2009/10/01/movieontology.owl#Editor> . <http://www.imdb.com/title/191142> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasEditor> ?e . ?e <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 75,
+        "question_pt": "Em quais filmes Pamela Anderson atuou?",
+        "question_en": "What movies did Pamela Anderson star in?",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/name/1055235> a <http://www.movieontology.org/2009/11/09/movieontology.owl#Actress> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress> <http://www.imdb.com/name/1055235> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 76,
+        "question_pt": "Quais as produ\u00e7\u00f5es de Hans Zimmer?",
+        "question_en": "Which soundtrack were write by Hans Zimmer?",
+        "query": "select ?title where { ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasProducer> <http://www.imdb.com/name/1036181>. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title. }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 77,
+        "question_pt": "Quais atores foram dirigidos por Woody Allen que tambem s\u00e3o diretores?",
+        "question_en": "Which actors were directed by Woody Allen who are also directors?",
+        "query": "select distinct ?birthName where { ?a a <http://dbpedia.org/ontology/Actor> . ?a a <http://dbpedia.org/page/Film_Director> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>. <http://www.imdb.com/name/17448> a <http://dbpedia.org/page/Film_Director> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> <http://www.imdb.com/name/17448>. ?a <http://dbpedia.org/ontology/birthName> ?birthName. }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 78,
+        "question_pt": "Quais atores foram dirigidos por Woody Allen?",
+        "question_en": "Which actors were directed by Woody Allen?",
+        "query": "select distinct ?birthName where { ?a a <http://dbpedia.org/ontology/Actor> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>. <http://www.imdb.com/name/17448> a <http://dbpedia.org/page/Film_Director> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> <http://www.imdb.com/name/17448>. ?a <http://dbpedia.org/ontology/birthName> ?birthName.  }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 79,
+        "question_pt": "Mostre me os atores que fizeram filmes depois desde 2010",
+        "question_en": "Show me the actors who made movies later since 2010",
+        "query": "select ?birthName where {  ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.  ?a a <http://dbpedia.org/ontology/Actor>.  ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a.  ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date.  ?a <http://dbpedia.org/ontology/birthName> ?birthName.  filter(year(?date) > 2010)}",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 80,
+        "question_pt": "Quando o ator Billy Wilder ganhou um Oscar?",
+        "question_en": "When did actor Robin Williams win an Oscar?",
+        "query": "SELECT ?date WHERE{ <http://www.imdb.com/name/1004637> <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> <http://www.movieontology.org/2009/10/01/movieontology.owl#Oscar_Award> . <http://www.imdb.com/name/1004637> <http://www.movieontology.org/2009/11/09/movieontology.owl#indicationDate> ?date. <http://www.imdb.com/name/1004637> <http://dbpedia.org/ontology/birthName> ?birthName . } LIMIT 1",
+        "type_question": "when",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 81,
+        "question_pt": "H\u00e1 quantos anos foi lan\u00e7ado o filme Eternal Sunshine of the Spotless Mind?",
+        "question_en": "How many years ago was the movie Eternal Sunshine of the Spotless Mind released?",
+        "query": "select ?time where { <http://www.imdb.com/title/160525> <http://dbpedia.org/ontology/productionStartYear> ?year. bind((year(now()) - ?year) as ?time) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 82,
+        "question_pt": "Sandra Bullock ganhou o oscar de melhor atriz em 2010?",
+        "question_en": "Did Sandra Bullock win Oscar for best actress in 2010?",
+        "query": "ask { <http://www.imdb.com/name/1114293> <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> <http://www.movieontology.org/2009/10/01/movieontology.owl#Oscar_Award>;                                   <http://www.movieontology.org/2009/11/09/movieontology.owl#indicationDate> ?date.  filter(year(?date) = 2010)}",
+        "type_question": "yes/no",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 83,
+        "question_pt": "Quem \u00e9 o figurinista do filme Wizards of the Lost Kingdom II?",
+        "question_en": "Who is the costume designer for the movie Wizards of the Lost Kingdom II?",
+        "query": "SELECT ?birthName  WHERE{ <http://www.imdb.com/title/578201> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?c a <http://www.movieontology.org/2009/10/01/movieontology.owl#Costume_Designer> . <http://www.imdb.com/title/578201> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasCostumeDesigner> ?c . ?c <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 84,
+        "question_pt": "Quem \u00e9 o produtor de The Simpsons?",
+        "question_en": "Who is the producer of The Simpsons?",
+        "query": "SELECT ?birthName  WHERE{ ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Producer> . <http://www.imdb.com/title/1282663> a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries> . <http://www.imdb.com/title/1282663> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasProducer> ?p . ?p <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 85,
+        "question_pt": "Em que linguagens City of God foi lan\u00e7ado?",
+        "question_en": "In what languages City of God was released?",
+        "query": "SELECT ?l WHERE{ ?l a <http://dbpedia.org/ontology/Language> . <http://www.imdb.com/title/94434> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/94434> <http://www.movieontology.org/2009/10/01/movieontology.owl#isTranslatedTo> ?l . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 86,
+        "question_pt": "Jackie Chan atuou em The Tuxedo?",
+        "question_en": "Did Jackie Chan star in The Tuxedo?",
+        "query": "ask { <http://www.imdb.com/title/524111> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> <http://www.imdb.com/name/157637> }",
+        "type_question": "yes/no",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 87,
+        "question_pt": "Qual \u00e9 o g\u00eanero de Teenage Mutant Ninja Turtles?",
+        "question_en": "What is the genre of Teenage Mutant Ninja Turtles?",
+        "query": "select ?label where {  <http://www.imdb.com/title/467119> <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> ?g. ?g <http://www.w3.org/2000/01/rdf-schema#label> ?label}",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 88,
+        "question_pt": "Qual foi or\u00e7amento de Batman?",
+        "question_en": "What was Batman's budget?",
+        "query": "SELECT ?budget WHERE{ <http://www.imdb.com/title/53721> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/53721> <http://dbpedia.org/ontology/budget> ?budget . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 89,
+        "question_pt": "Quando a s\u00e9rie Breaking Bad foi lan\u00e7ada?",
+        "question_en": "When was the Breaking Bad series released?",
+        "query": "SELECT ?date WHERE{ <http://www.imdb.com/title/679464> a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries> . <http://www.imdb.com/title/679464> <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . } ",
+        "type_question": "when",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 90,
+        "question_pt": "Quantos atores participaram do filme The Silence of the Lambs?",
+        "question_en": "How many actors participated in the movie The Silence of the Lambs?",
+        "query": "SELECT (COUNT(?birthName) AS ?count)  WHERE{ <http://www.imdb.com/title/518000> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://dbpedia.org/ontology/Actor> . <http://www.imdb.com/title/518000> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "count",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 91,
+        "question_pt": "quais filmes foram feitos na Pol\u00f4nia?",
+        "question_en": "what movies were made in Poland?",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Poland> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 92,
+        "question_pt": "Liste todos os filmes de Drama feitos por HBO",
+        "question_en": "ist All HBO Drama Movies",
+        "query": "SELECT DISTINCT ?title  WHERE{ <http://www.imdb.com/company/187685> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Drama> . <http://www.imdb.com/company/187685> <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 93,
+        "question_pt": "Me d\u00ea todas as S\u00e9ries de Tv da Austr\u00e1lia",
+        "question_en": "Give me all the Australian TV Series",
+        "query": "select distinct ?title where { ?s a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries>.   ?a a <http://www.movieontology.org/2009/10/01/movieontology.owl#Australia_and_New_Zealand>.   ?s <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?a.   ?s <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title}",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 94,
+        "question_pt": "Quantos roteiristas escreveram os filme 24 Hours?",
+        "question_en": "How many screenwriters wrote the movie 24 Hours?",
+        "query": "SELECT (COUNT(?birthName) AS ?count)  WHERE{ ?w a <http://dbpedia.org/ontology/Writer> . <http://www.imdb.com/title/3627> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?w <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> <http://www.imdb.com/title/3627> . ?w <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "count",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 95,
+        "question_pt": "Quais filmes foram gravados na Est\u00f4nia?",
+        "question_en": "What movies were recorded in Estonia?",
+        "query": "SELECT ?title WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Estonia> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 96,
+        "question_pt": "Qual o filme de com\u00e9dia mais bem avaliado?",
+        "question_en": "What is the highest rated comedy movie?",
+        "query": "SELECT ?title ?imdbrating  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Comedy> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating> ?imdbrating . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . } ORDER BY DESC(?imdbrating)",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 97,
+        "question_pt": "Em quais filmes Chuck Norris atuou?",
+        "question_en": "What movies did Chuck Norris star in?",
+        "query": "select ?title where { ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.    <http://www.imdb.com/name/681801> a <http://dbpedia.org/ontology/Actor>.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> <http://www.imdb.com/name/681801>.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title. }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 98,
+        "question_pt": "Quem dirigiu Aldis?",
+        "question_en": "Who drove Aldis?",
+        "query": "SELECT ?f WHERE{ <http://www.imdb.com/title/25590> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/25590> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> ?f . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 99,
+        "question_pt": "Qual o maior filme produzido nos Estados Unidos?",
+        "question_en": "What is the biggest movie produced in the United States?",
+        "query": "select distinct ?title where { ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#USA>. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#runtime> ?runtime. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title. } order by desc(?runtime) limit 1",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 100,
+        "question_pt": "quais companhias de filmes da alemanha que ganharam premia\u00e7\u00f5es?",
+        "question_en": "Which German film companies have won awards?",
+        "query": "SELECT DISTINCT ?companyName  WHERE{ ?a a ?w . ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> ?a . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Germany> . ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName . FILTER (?w IN (<http://www.movieontology.org/2009/10/01/movieontology.owl#Award>) || ?a IN (<http://www.movieontology.org/2009/10/01/movieontology.owl#BAFTA_Film_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Golden_Globe_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Miscellaneous_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Oscar_Award>,<http://www.movieontology.org/2009/10/01/movieontology.owl#Primetime_Emmy_Award>)). }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 101,
+        "question_pt": "De qual regi\u00e3o \u00e9 a companhia Columbia Pictures?",
+        "question_en": "Which region is a Columbia Pictures company from?",
+        "query": "select distinct ?t where {  <http://www.imdb.com/company/27047> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . <http://www.imdb.com/company/27047> <http://www.movieontology.org/2009/11/09/movieontology.owl#hasCompanyLocation> ?t . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 102,
+        "question_pt": "Me d\u00ea todos os filmes da Marvel Studios.",
+        "question_en": "Give me all the Marvel Studios movies.",
+        "query": "SELECT ?title  WHERE{ <http://www.imdb.com/company/109462> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/company/109462> <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 103,
+        "question_pt": "Quais companhias est\u00e3o localizadas na Oceania?",
+        "question_en": "Which producers are located in Oceania?",
+        "query": "select distinct ?companyName where { ?c a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company>.   ?o a ?t.   ?c <http://www.movieontology.org/2009/11/09/movieontology.owl#hasCompanyLocation> ?o.   ?c <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName.  filter(?t in (<http://www.movieontology.org/2009/10/01/movieontology.owl#Australia_and_New_Zealand>, <http://www.movieontology.org/2009/10/01/movieontology.owl#Melanesia>, <http://www.movieontology.org/2009/10/01/movieontology.owl#Micronesia>, <http://www.movieontology.org/2009/10/01/movieontology.owl#Polynesia>)) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 104,
+        "question_pt": "Quais filmes foram escritos por Diablo Cody?",
+        "question_en": "What movies were written by Diablo Cody?",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/name/1145365> a <http://dbpedia.org/ontology/Writer> . ?m <http://www.movieontology.org/2009/11/09/movieontology.owl#writtenBy> <http://www.imdb.com/name/1145365> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 105,
+        "question_pt": "Qual o nome do filme mais bem avaliado da companhia Paramount?",
+        "question_en": "What's the name of the Paramount company's highest rated movie?",
+        "query": "SELECT ?title WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating> ?imdbrating . <http://www.imdb.com/company/26281> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company>. <http://www.imdb.com/company/26281> <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title. } ORDER BY DESC(?imdbrating)",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 106,
+        "question_pt": "Onde foi gravado o filme Fort Knox?",
+        "question_en": "Where was the movie Fort Knox recorded?",
+        "query": "SELECT ?hasFilmLocation WHERE{ <http://www.imdb.com/title/176253> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/176253> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?hasFilmLocation . }",
+        "type_question": "where",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 107,
+        "question_pt": "Me mostre os atores que estrelaram Lovesick",
+        "question_en": "Show me the actors who starred in Lovesick",
+        "query": "SELECT DISTINCT ?birthName  WHERE{ <http://www.imdb.com/title/303558> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://dbpedia.org/ontology/Actor> . <http://www.imdb.com/title/303558> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 108,
+        "question_pt": "Quais companhias brazileiras gravaram filme de amor e a\u00e7\u00e3o",
+        "question_en": "Which movies have been translated into more than 10 languages?",
+        "query": "SELECT ?title (count(*) as ?count) WHERE{   ?l a <http://dbpedia.org/ontology/Language> .   ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> .   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#isTranslatedTo> ?l .   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title.}  group by ?m having (?count > 10)",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 109,
+        "question_pt": "Quais filmes os atores Harrison Ford e Helen Greene fizeram juntos? ",
+        "question_en": "What movies did actors Harrison Ford and Helen Greene make together?",
+        "query": "SELECT distinct ?title WHERE{ <http://www.imdb.com/name/302150> a <http://dbpedia.org/ontology/Actor>. <http://www.imdb.com/name/1252179> a <http://www.movieontology.org/2009/11/09/movieontology.owl#Actress>. ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> <http://www.imdb.com/name/302150>. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress> <http://www.imdb.com/name/1252179>. ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title. }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 110,
+        "question_pt": "Quais as 5 companhias mais ganhou o oscars?",
+        "question_en": "Which 5 companies most won the oscars?",
+        "query": "SELECT ?companyName (COUNT(?companyName) as ?count)  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> <http://www.movieontology.org/2009/10/01/movieontology.owl#Oscar_Award> . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName . } GROUP BY ?companyName ORDER BY DESC(?count) LIMIT 5",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 111,
+        "question_pt": "Qu\u00e3o longo \u00e9 o filme Ben Hur?",
+        "question_en": "How long is the movie Ben Hur?",
+        "query": "select ?runtime where {<http://www.imdb.com/title/57413> <http://www.movieontology.org/2009/10/01/movieontology.owl#runtime> ?runtime}",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 112,
+        "question_pt": "Liste todos os filmes de com\u00e9dia de janeiro de 2004",
+        "question_en": "List all January 2004 comedy movies",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> <http://www.movieontology.org/2009/10/01/movieontology.owl#Comedy> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . bind(month(?date) as ?month). filter(?month = 1).  bind(year(?date) as ?year). filter(?year = 2004). }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 113,
+        "question_pt": "Quem s\u00e3o os atores de atuaram em Apollo 13?",
+        "question_en": "Who are the acting actors in Apollo 13?",
+        "query": "SELECT ?birthName  WHERE{ <http://www.imdb.com/title/38405> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?a a <http://dbpedia.org/ontology/Actor> . <http://www.imdb.com/title/38405> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> ?a . ?a <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 114,
+        "question_pt": "Quais os nomes dos filmes em que Dwayne Johnson trabalhou?",
+        "question_en": "What are the names of the movies that keanu reeves worked on?",
+        "query": "select distinct ?title where { <http://www.imdb.com/name/452806> a <http://dbpedia.org/ontology/Actor>. ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> <http://www.imdb.com/name/452806>.?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title. }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 115,
+        "question_pt": "O filme The Scientist ganhou Oscar?",
+        "question_en": "Did The Scientist film win an Oscar?",
+        "query": "ask {<http://www.imdb.com/title/516301> <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> <http://www.movieontology.org/2009/10/01/movieontology.owl#Oscar_Award> }",
+        "type_question": "yes/no",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 116,
+        "question_pt": "Quais produtoras brasileiras j\u00e1 gravaram filmes de amor e a\u00e7\u00e3o?",
+        "question_en": "Which Brazilian producers have recorded love and action movies?",
+        "query": "select distinct ?companyName where { ?c a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company>.   ?g a ?possibleGenres.   ?c <http://www.movieontology.org/2009/11/09/movieontology.owl#hasCompanyLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Brazil>.   ?c <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre> ?g.   ?c <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName  filter(?possibleGenres in (<http://www.movieontology.org/2009/10/01/movieontology.owl#Brute_Action>, <http://www.movieontology.org/2009/10/01/movieontology.owl#Love>)) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 117,
+        "question_pt": "Quem fez parte do elenco da s\u00e9rie The big bang theory?",
+        "question_en": "Who was in the cast of The Big Bang Theory?",
+        "query": "select ?c where { <http://www.imdb.com/title/1210162> a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries> . ?c a ?p. <http://www.imdb.com/title/1210162> ?hasActor ?c.   filter(?p = <http://dbpedia.org/ontology/Actor> || ?p = <http://www.movieontology.org/2009/11/09/movieontology.owl#Actress>) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 118,
+        "question_pt": "Liste-me todas s\u00e9ries lan\u00e7adas antes do ano 2000",
+        "question_en": "List me all series released before year 2000",
+        "query": "select ?title where {        ?s a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries>.          ?s <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date. ?s <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title filter(year(?date) < 2000) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 119,
+        "question_pt": "Em que regi\u00e3o foi produzido V for Vendetta?",
+        "question_en": "In which region was V for Vendetta produced?",
+        "query": "select ?t where { <http://www.imdb.com/title/556727> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?t. }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 120,
+        "question_pt": "Quando foi lan\u00e7ado Zombieland?",
+        "question_en": "When was Zombieland released?",
+        "query": "SELECT ?date WHERE{ <http://www.imdb.com/title/589352> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/589352> <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . }",
+        "type_question": "when",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 121,
+        "question_pt": "Quem \u00e9 o roteirista de The Devil Wears Prada?",
+        "question_en": "Who is the screenwriter for The Devil Wears Prada?",
+        "query": "SELECT ?birthName  WHERE{ ?w a <http://dbpedia.org/ontology/Writer> . <http://www.imdb.com/title/484274> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?w <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> <http://www.imdb.com/title/484274> . ?w <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 122,
+        "question_pt": "Quando Mohammed foi lan\u00e7ado?",
+        "question_en": "When was Mohammed released?",
+        "query": "SELECT ?date WHERE{ <http://www.imdb.com/title/327853> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/327853> <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . }",
+        "type_question": "when",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 123,
+        "question_pt": "Quem foi o protagonista no filme 2001:A Space Odyssey?",
+        "question_en": "Who was the protagonist in the movie 2001: A Space Odyssey?",
+        "query": "SELECT ?birthName WHERE{ <http://www.imdb.com/title/3199> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/3199> ?hasActor ?a. ?a <http://dbpedia.org/ontology/birthName> ?birthName. filter(?hasActor = <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress> || ?hasActor =  <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor>) }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 124,
+        "question_pt": "Quantos filmes foram nomeados com o mesmo t\u00edtulo ",
+        "question_en": "How many movies were named with the same title",
+        "query": "select (count(*) as ?count) where { ?m1 a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.  ?m2 a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.  ?m1 <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title1.  ?m2 <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title2.  filter(?title1 = ?title2 && ?m1 != ?m2)}",
+        "type_question": "count",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 125,
+        "question_pt": "Quantos filmes do 007 existem?",
+        "question_en": "How many 007 movies do exist?",
+        "query": "select (count(?m) as ?count) where {  ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.    ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title.    filter(regex(?title, \"007\")) }",
+        "type_question": "count",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 126,
+        "question_pt": "Em quais regi\u00f5es Jackie Chan atuou?",
+        "question_en": "In which regions did Jackie Chan perform?",
+        "query": "select distinct ?l where { ?t <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> <http://www.imdb.com/name/157637>.   ?t <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> ?l.}",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 127,
+        "question_pt": "Quais os 10 filmes mais bem avaliados gravados pela Companhia Columbia Films?",
+        "question_en": "What are the 10 highest rated movies recorded by Columbia Films Company?",
+        "query": "SELECT ?imdbrating WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/company/15454> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating> ?imdbrating . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#isProducedBy> <http://www.imdb.com/company/15454> . } ORDER BY DESC(?imdbrating) LIMIT 10 ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 128,
+        "question_pt": "Quais atrizes j\u00e1 atuaram em filmes e em series",
+        "question_en": "Which actresses have acted in movies and series",
+        "query": "select distinct ?birthName where { ?a a <http://www.movieontology.org/2009/11/09/movieontology.owl#Actress>.    ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.    ?s a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries>.    ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress> ?a.    ?s <http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress> ?a.   ?a <http://dbpedia.org/ontology/birthName> ?birthName. }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 129,
+        "question_pt": "Quem foram os roteiristas de filmes que o Tom Hanks participou?",
+        "question_en": "Who were the movie writers Tom Hanks participated in?",
+        "query": "SELECT ?birthName  WHERE{ <http://www.imdb.com/name/380041> a <http://dbpedia.org/ontology/Actor> . ?w a <http://dbpedia.org/ontology/Writer> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor> <http://www.imdb.com/name/380041> . ?w <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> ?m . ?w <http://dbpedia.org/ontology/birthName> ?birthName . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 130,
+        "question_pt": "Quem \u00e9 o roteirista de Between the Flags?",
+        "question_en": "Who is the writer of Between the Flags?",
+        "query": "SELECT ?birthName  WHERE{ ?w a <http://dbpedia.org/ontology/Writer> . <http://www.imdb.com/title/59225> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?w <http://www.movieontology.org/2009/11/09/movieontology.owl#wrote> <http://www.imdb.com/title/59225> . ?w <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 131,
+        "question_pt": "Mostre as companhias de cinema com mais de 5 filmes feitos no Brasil",
+        "question_en": "Show movie companies with over 5 films made in Brazil",
+        "query": "select ?companyName (count(?companyName) as ?count) where { ?c a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company>.   ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.   ?c <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Brazil>.   ?c <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName. } group by ?companyName having (?count > 5)",
+        "type_question": "count",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 132,
+        "question_pt": "Em qual companhia foi produzido o primeiro filme do diretor Martin Scorsese?",
+        "question_en": "In which company was director Martin Scorsese's first film produced?",
+        "query": "SELECT DISTINCT ?companyName WHERE{ <http://www.imdb.com/name/839523> a <http://dbpedia.org/page/Film_Director> . ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> <http://www.imdb.com/name/839523> . ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> ?m . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 133,
+        "question_pt": "quem s\u00e3o os figurinistas de filmes escritos por Rasheem Johnson?",
+        "question_en": "who are the movie costume designers written by Rasheem Johnson?",
+        "query": "SELECT ?birthName  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?c a <http://www.movieontology.org/2009/10/01/movieontology.owl#Costume_Designer> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasCostumeDesigner> ?c . ?c <http://dbpedia.org/ontology/birthName> ?birthName . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 134,
+        "question_pt": "Quais s\u00e3o as s\u00e9ries tem mais de 100 pessoas no elenco?",
+        "question_en": "What series has more than 100 people in the cast?",
+        "query": "select ?title (count(?title) as ?count) where { ?t a <http://www.movieontology.org/2009/10/01/movieontology.owl#TVSeries>.   ?t ?hasActor ?a.   ?t <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title  filter(?hasActor in (<http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress>, <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor>))}group by ?title having (?count > 100)",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 135,
+        "question_pt": "Qual o nome do filme como o maior elenco de todos os tempos?",
+        "question_en": "What's the name of the movie as the biggest cast ever?",
+        "query": "select ?title (count(?title) as ?count) where { ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.   ?m ?hasActor ?a.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title  filter(?hasActor in (<http://www.movieontology.org/2009/10/01/movieontology.owl#hasActress>, <http://www.movieontology.org/2009/10/01/movieontology.owl#hasMaleActor>))}group by ?title order by desc(?count) limit 1",
+        "type_question": "what",
+        "aggregation": true,
+        "temporal_filter": false
+    },
+    {
+        "id": 136,
+        "question_pt": "Qual produtora fez o filme Ferris Bueller Day Off?",
+        "question_en": "Which producer made the movie Ferris Bueller Day Off?",
+        "query": "SELECT DISTINCT ?companyName WHERE{?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> .<http://www.imdb.com/title/168930> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> .<http://www.imdb.com/title/168930> <http://www.movieontology.org/2009/10/01/movieontology.owl#isProducedBy> ?p .?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 137,
+        "question_pt": "Quais os 10 filmes dos Estados Unidos mais recentes?",
+        "question_en": "What are the 10 most recent US films?",
+        "query": "SELECT ?m WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#USA> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?releasedate. } ORDER BY DESC(?releasedate) LIMIT 10",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 138,
+        "question_pt": "Quem dirigiu o filme Socrates?",
+        "question_en": "Who directed the movie Socrates?",
+        "query": "SELECT ?f WHERE{ <http://www.imdb.com/title/442147> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/442147> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> ?f . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 139,
+        "question_pt": "Me mostre todos os filmes argentinos",
+        "question_en": "Show me all Argentinian movies",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Argentina> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 140,
+        "question_pt": "Qual foi o ano de in\u00edcio da produ\u00e7\u00e3o de Heinz: Diner?",
+        "question_en": "What was the start year of Heinz: Diner production?",
+        "query": "select ?year where { <http://www.imdb.com/title/205228> <http://dbpedia.org/ontology/productionStartYear> ?year}",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 141,
+        "question_pt": "Quem dirigiu  The Michael Jackson show?",
+        "question_en": "Who directed The Michael Jackson show?",
+        "query": "SELECT ?f WHERE{ <http://www.imdb.com/title/505134> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/title/505134> <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> ?f . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 142,
+        "question_pt": "Qual o nome do filme de maior bilheteria estreado em 1997?",
+        "question_en": "What's the name of the highest grossing movie premiered in 1997?",
+        "query": "select ?title where { ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie>.   ?m <http://dbpedia.org/ontology/budget> ?budget.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title.   ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date.  filter(year(?date) = 1997)}  order by desc(?budget) limit 1",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 143,
+        "question_pt": "Quais atrizes ganharam o BAFTA nos ultimos 10 anos?",
+        "question_en": "Which actresses have won BAFTA in the last 10 years?",
+        "query": "SELECT DISTINCT ?birthName  WHERE{ ?a a <http://www.movieontology.org/2009/11/09/movieontology.owl#Actress> . ?a <http://www.movieontology.org/2009/10/01/movieontology.owl#isAwardedWith> <http://www.movieontology.org/2009/10/01/movieontology.owl#BAFTA_Film_Award> . ?a <http://www.movieontology.org/2009/11/09/movieontology.owl#indicationDate> ?date . ?a <http://dbpedia.org/ontology/birthName> ?birthName . bind(strdt(concat(str(year(now())),concat(\"-\",concat(str(month(now())),concat(\"-\",str(day(now())))))), <http://www.w3.org/2001/XMLSchema#date>) as ?now). bind(day(?now - ?date) as ?time). filter(?time <= 10*365). }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 144,
+        "question_pt": "Mostre me todos diretores dos filmes gravados na china",
+        "question_en": "Show me all the directors of movies recorded in china",
+        "query": "SELECT DISTINCT ?birthName  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?f a <http://dbpedia.org/page/Film_Director> .?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#China> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasDirector> ?f . ?f <http://dbpedia.org/ontology/birthName> ?birthName . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 145,
+        "question_pt": "Quais filmes foram gravados na Alemanha por companhias dos estados unidos?",
+        "question_en": "What movies were recorded in Germany by US companies?",
+        "query": "SELECT DISTINCT ?title WHERE { ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#hasCompanyLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#USA> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Germany>.  ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#isProducedBy> ?p . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 146,
+        "question_pt": "Me d\u00ea todos os filmes americanos dos ultimos 20 anos",
+        "question_en": "Give me all the american movies of the last 20 years",
+        "query": "SELECT ?m WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/11/09/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#USA> . <http://www.imdb.com/title/31052> <http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate> ?date . bind(strdt(concat(str(year(now())),concat(\"-\",concat(str(month(now())),concat(\"-\",str(day(now())))))), <http://www.w3.org/2001/XMLSchema#date>) as ?now). bind(day(?now - ?date) as ?time). filter(?time <= 20*365). }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": true
+    },
+    {
+        "id": 147,
+        "question_pt": "Quais companhias gravaram Medicinal?",
+        "question_en": "Which companies recorded Medicinal?",
+        "query": "SELECT DISTINCT ?companyName  WHERE{ ?p a <http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company> . <http://www.imdb.com/title/318242> a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?p <http://www.movieontology.org/2009/10/01/movieontology.owl#produced> <http://www.imdb.com/title/318242> . ?p <http://www.movieontology.org/2009/11/09/movieontology.owl#companyName> ?companyName . } ",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 148,
+        "question_pt": "mostre me todos filmes da R\u00fassia.",
+        "question_en": "Show me all films from Russia.",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#hasFilmLocation> <http://www.movieontology.org/2009/10/01/movieontology.owl#Russia> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    },
+    {
+        "id": 149,
+        "question_pt": "quais filmes Rasheem Johnson escreveu?",
+        "question_en": "what movies did Rasheem Johnson write?",
+        "query": "SELECT DISTINCT ?title  WHERE{ ?m a <http://www.movieontology.org/2009/10/01/movieontology.owl#Movie> . <http://www.imdb.com/name/1906543> a <http://dbpedia.org/ontology/Writer> . ?m <http://www.movieontology.org/2009/11/09/movieontology.owl#writtenBy> <http://www.imdb.com/name/1906543> . ?m <http://www.movieontology.org/2009/10/01/movieontology.owl#title> ?title . }",
+        "type_question": "what",
+        "aggregation": false,
+        "temporal_filter": false
+    }
+]
